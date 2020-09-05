@@ -1,5 +1,6 @@
 import pymysql
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import json
 import time
 import itertools
@@ -116,6 +117,7 @@ query_object = {
 #Region = cursor.fetchall()                          # get all the results and place it into the tulep Region
 
 app = Flask(__name__)
+CORS(app)
 @app.route('/')                                     #home page
 def home():       
      return('hello world') #jsonify(Region)         # return all data as json 

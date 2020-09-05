@@ -2,3 +2,4 @@ Flask
 python-dotenv
 PyMySQL
 gunicorn
+flask_cors
