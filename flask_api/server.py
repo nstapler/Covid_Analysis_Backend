@@ -54,7 +54,7 @@ def RequestDataGivenFilters(Filters):
 # this takes in a querry form ListOfQuereys and then returns the results in a json format.
     resultsList = []
     resultObj = {}
-    print("FilterObj: "+str(Filters))
+    #print("FilterObj: "+str(Filters))
     for i in range(len(colList)):
         newQuery= query_object["get_data"].format(value=colList[i],table=tableList[i],rTable=regionTable)
         where = ""
@@ -67,11 +67,11 @@ def RequestDataGivenFilters(Filters):
             where = query_object["get_data_where"].format(value=colList[i],max=Filters[colList[i]]["Max"],min=Filters[colList[i]]["Min"])
             newQuery = " ".join([newQuery,where])
         
-        print("Query: "+newQuery)
+        #print("Query: "+newQuery)
         cursor.execute(newQuery) 
         resultRows = dictfetchall(cursor)
         #print("Resultrows: "+str(resultRows))
-        print("Resulting "+colList[i]+" len: "+ str(len(resultRows)))
+        #print("Resulting "+colList[i]+" len: "+ str(len(resultRows)))
         if len(resultRows)!=0:
             if "filteredData" not in resultObj:
                 resultObj["filteredData"]={}
