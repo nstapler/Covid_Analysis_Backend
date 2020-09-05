@@ -1,0 +1,1 @@
+web: cd flask_api && flask run
