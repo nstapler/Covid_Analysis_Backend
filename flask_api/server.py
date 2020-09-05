@@ -2,13 +2,9 @@ import pymysql
 from flask import Flask, jsonify, request
 import json
 import time
-import os #allows import of the .env enviornment files
 import itertools
 from datetime import date, datetime
 
-
-port = os.getenv("port")
-#print("port is: "+port)
 def dictfetchall(cursor):
     """Returns all rows from a cursor as a list of dicts"""
     desc = cursor.description
@@ -153,4 +149,5 @@ def egg():
     return('three fucking monkeys-by deaf')
 
 if __name__=='__main__':
-    app.run()
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(threaded=True, port=5000)
